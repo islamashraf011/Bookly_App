@@ -1,6 +1,9 @@
 import 'package:bookly_app/Core/utils/assets.dart';
+import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 import 'fading_text.dart';
 
@@ -20,16 +23,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
 
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1500),
-    );
-
-    fadingAnimation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(animationController);
-    animationController.forward();
+    initFadingAnimation();
+    navigateToHome();
   }
 
   @override
@@ -49,6 +44,32 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
         FadingText(fadingAnimation: fadingAnimation)
       ],
+    );
+  }
+
+  void initFadingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    fadingAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(animationController);
+    animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        Get.to(
+          const HomeView(),
+          transition: Transition.fade,
+          duration: kTransitionDuration,
+        );
+      },
     );
   }
 }
