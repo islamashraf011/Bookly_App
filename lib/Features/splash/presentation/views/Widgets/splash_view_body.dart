@@ -1,10 +1,42 @@
-import 'package:bookly_app/Core/utils/app_text_style.dart';
 import 'package:bookly_app/Core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class SplashViewBody extends StatelessWidget {
+import 'fading_text.dart';
+
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<double> fadingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    fadingAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(animationController);
+    animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +47,7 @@ class SplashViewBody extends StatelessWidget {
         Image.asset(
           AssetsData.logo,
         ),
-        Text(
-          "Read , Learn , Grow",
-          textAlign: TextAlign.center,
-          style: AppTextStyles.semiBold18(context),
-        )
+        FadingText(fadingAnimation: fadingAnimation)
       ],
     );
   }
