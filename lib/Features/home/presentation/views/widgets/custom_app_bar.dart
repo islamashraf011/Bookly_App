@@ -13,13 +13,13 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Image.asset(
           AssetsData.logo,
-          height: ResponsiveSize.height(context, 36),
+          height: ResponsiveSize.height(context, 22),
         ),
         IconButton(
           onPressed: () {},
           icon: Icon(
             FontAwesomeIcons.magnifyingGlass,
-            size: ResponsiveSize.height(context, 36),
+            size: ResponsiveSize.height(context, 22),
           ),
         ),
       ],

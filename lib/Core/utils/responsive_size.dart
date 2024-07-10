@@ -5,8 +5,8 @@ class ResponsiveSize {
     // screen Height = 867.5
     double screenHeight = MediaQuery.of(context).size.height;
 
-    double responsiveHeight =
-        screenHeight / height; // Adjust the base width as needed
+    double responsiveHeight = (height / screenHeight) * screenHeight;
+
     return responsiveHeight;
   }
 
@@ -14,8 +14,8 @@ class ResponsiveSize {
     // Screen Width = 411.5
     double screenWidth = MediaQuery.of(context).size.width;
 
-    double responsiveWidth =
-        screenWidth / width; // Adjust the base width as needed
+    double responsiveWidth = (width / screenWidth) * screenWidth;
+
     return responsiveWidth;
   }
 }
