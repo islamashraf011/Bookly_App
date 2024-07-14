@@ -10,7 +10,7 @@ class BestSellerBooksListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
       child: SizedBox(
         height: ResponsiveSize.height(context, 125),
         child: Row(
