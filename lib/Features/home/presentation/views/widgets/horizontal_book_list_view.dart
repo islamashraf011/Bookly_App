@@ -11,7 +11,6 @@ class HorizontalBooksListView extends StatelessWidget {
       height: ResponsiveSize.height(context, 210),
       child: ListView.builder(
         padding: const EdgeInsets.only(left: 24),
-        itemCount: 10,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return const Padding(

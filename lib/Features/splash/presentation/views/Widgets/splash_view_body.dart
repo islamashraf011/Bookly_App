@@ -60,12 +60,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
+// Get.to(() => Page())" instead of "Get.to(Page())".Using will be removed from memory when they are no longer used
   void navigateToHome() {
     Future.delayed(
       const Duration(seconds: 2),
       () {
         Get.to(
-          const HomeView(),
+          () => const HomeView(),
           transition: Transition.fade,
           duration: kTransitionDuration,
         );

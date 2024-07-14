@@ -1,5 +1,7 @@
+import 'package:bookly_app/Core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import '../../../../../Core/utils/assets.dart';
+import '../../../../../Core/utils/responsive_size.dart';
 
 class BestSellerBooksListViewItem extends StatelessWidget {
   const BestSellerBooksListViewItem({super.key});
@@ -9,7 +11,7 @@ class BestSellerBooksListViewItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
       child: SizedBox(
-        height: 125,
+        height: ResponsiveSize.height(context, 125),
         child: Row(
           children: [
             AspectRatio(
@@ -28,6 +30,37 @@ class BestSellerBooksListViewItem extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              width: ResponsiveSize.width(context, 30),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: ResponsiveSize.width(context, 200),
+                  child: Text(
+                    "Harry Potter and the Goblet of Fire",
+                    style: AppTextStyles.regularGtFont20(context),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(
+                  height: ResponsiveSize.height(context, 3),
+                ),
+                Text(
+                  "J.K. Rowling",
+                  style: AppTextStyles.regular14(context),
+                ),
+                SizedBox(
+                  height: ResponsiveSize.height(context, 3),
+                ),
+                Text(
+                  "19.99 €",
+                  style: AppTextStyles.bold20(context),
+                ),
+              ],
+            )
           ],
         ),
       ),
