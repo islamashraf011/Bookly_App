@@ -27,7 +27,7 @@ abstract class AppTextStyles {
   }
 
   static regular14(BuildContext context) {
-    return TextStyle(
+    TextStyle(
       fontSize: ResponsiveSize.height(context, 14),
       fontWeight: FontWeight.normal,
     );
@@ -47,4 +47,10 @@ abstract class AppTextStyles {
       fontFamily: kGtSectraFont,
     );
   }
+
+  static const fontColor14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: Color(kNumRate),
+  );
 }

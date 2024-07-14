@@ -2,6 +2,7 @@ import 'package:bookly_app/Core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import '../../../../../Core/utils/assets.dart';
 import '../../../../../Core/utils/responsive_size.dart';
+import 'books_rating.dart';
 
 class BestSellerBooksListViewItem extends StatelessWidget {
   const BestSellerBooksListViewItem({super.key});
@@ -33,33 +34,42 @@ class BestSellerBooksListViewItem extends StatelessWidget {
             SizedBox(
               width: ResponsiveSize.width(context, 30),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: ResponsiveSize.width(context, 200),
-                  child: Text(
-                    "Harry Potter and the Goblet of Fire",
-                    style: AppTextStyles.regularGtFont20(context),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: ResponsiveSize.width(context, 200),
+                    child: Text(
+                      "Harry Potter and the Goblet of Fire",
+                      style: AppTextStyles.regularGtFont20(context),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: ResponsiveSize.height(context, 3),
-                ),
-                Text(
-                  "J.K. Rowling",
-                  style: AppTextStyles.regular14(context),
-                ),
-                SizedBox(
-                  height: ResponsiveSize.height(context, 3),
-                ),
-                Text(
-                  "19.99 €",
-                  style: AppTextStyles.bold20(context),
-                ),
-              ],
+                  SizedBox(
+                    height: ResponsiveSize.height(context, 3),
+                  ),
+                  Text(
+                    "J.K. Rowling",
+                    style: AppTextStyles.regular14(context),
+                  ),
+                  SizedBox(
+                    height: ResponsiveSize.height(context, 3),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        "19.99 €",
+                        style: AppTextStyles.bold20(context),
+                      ),
+                      const BooksRating(),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
