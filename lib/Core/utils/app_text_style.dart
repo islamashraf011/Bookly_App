@@ -54,4 +54,12 @@ abstract class AppTextStyles {
       color: Colors.white.withOpacity(0.5),
     );
   }
+
+  static regularColor18(BuildContext context) {
+    return TextStyle(
+      fontSize: ResponsiveSize.height(context, 18),
+      fontWeight: FontWeight.normal,
+      color: Colors.white.withOpacity(0.7),
+    );
+  }
 }
