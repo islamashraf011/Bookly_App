@@ -1,10 +1,8 @@
+import 'package:bookly_app/Core/utils/app_router.dart';
 import 'package:bookly_app/Core/utils/assets.dart';
-import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
-import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-
+import 'package:go_router/go_router.dart';
 import 'fading_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -60,16 +58,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
-// Get.to(() => Page())" instead of "Get.to(Page())".Using will be removed from memory when they are no longer used
+  // Remove Get and Use Go Router Package to Navigate
   void navigateToHome() {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Get.to(
-          () => const HomeView(),
-          transition: Transition.fade,
-          duration: kTransitionDuration,
-        );
+        GoRouter.of(context).push(AppRouter.homeView);
+
+        // Get.to(
+        //   () => const HomeView(),
+        //   transition: Transition.fade,
+        //   duration: kTransitionDuration,
+        // );
       },
     );
   }
