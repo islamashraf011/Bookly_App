@@ -25,9 +25,9 @@ class BooksRating extends StatelessWidget {
         SizedBox(
           width: ResponsiveSize.width(context, 7),
         ),
-        const Text(
+        Text(
           "(2390)",
-          style: AppTextStyles.fontColor14,
+          style: AppTextStyles.regularColor14(context),
         ),
       ],
     );

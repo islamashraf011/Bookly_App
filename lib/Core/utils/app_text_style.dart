@@ -1,7 +1,6 @@
 import 'package:bookly_app/Core/utils/responsive_size.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 abstract class AppTextStyles {
   static semiBold18(BuildContext context) {
@@ -27,7 +26,7 @@ abstract class AppTextStyles {
   }
 
   static regular14(BuildContext context) {
-    TextStyle(
+    return TextStyle(
       fontSize: ResponsiveSize.height(context, 14),
       fontWeight: FontWeight.normal,
     );
@@ -48,9 +47,11 @@ abstract class AppTextStyles {
     );
   }
 
-  static const fontColor14 = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.normal,
-    color: Color(kNumRate),
-  );
+  static regularColor14(BuildContext context) {
+    return TextStyle(
+      fontSize: ResponsiveSize.height(context, 14),
+      fontWeight: FontWeight.normal,
+      color: Colors.white.withOpacity(0.5),
+    );
+  }
 }
