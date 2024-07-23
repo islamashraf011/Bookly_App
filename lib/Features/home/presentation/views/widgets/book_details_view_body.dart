@@ -9,14 +9,23 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomBookDetailsAppBar(),
-        const BookDetailsSection(),
-        SizedBox(
-          height: ResponsiveSize.height(context, 50),
-        ),
-        const SimilarBooksSection()
+    return CustomScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      slivers: [
+        SliverFillRemaining(
+          // false :  Solve if the screen size not cover all widget
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              const CustomBookDetailsAppBar(),
+              const BookDetailsSection(),
+              SizedBox(
+                height: ResponsiveSize.height(context, 50),
+              ),
+              const SimilarBooksSection()
+            ],
+          ),
+        )
       ],
     );
   }
