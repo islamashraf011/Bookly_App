@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'book_list_view_item.dart';
+import '../../../../home/presentation/views/widgets/book_list_view_item.dart';
 
-class BestSellerBooksListView extends StatelessWidget {
-  const BestSellerBooksListView({super.key});
+class SearchResultListView extends StatelessWidget {
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.zero,
-      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return const BookListViewItem();
       },
