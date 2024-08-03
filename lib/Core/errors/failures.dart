@@ -1,2 +1,7 @@
 // Abstract Class : Means Class Without any copy of it
-abstract class Failures {}
+abstract class Failures {
+
+  
+}
+
+class ServerFail extends Failures{}
