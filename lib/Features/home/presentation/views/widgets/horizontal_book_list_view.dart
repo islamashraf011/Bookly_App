@@ -17,12 +17,17 @@ class HorizontalBooksListView extends StatelessWidget {
           return SizedBox(
             height: ResponsiveSize.height(context, 210),
             child: ListView.builder(
+              itemCount: state.books.length,
               padding: const EdgeInsets.only(left: 24),
               scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(right: 15),
-                  child: CustomBookImage(),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: CustomBookImage(
+                    imageUrl:
+                        state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                  ),
                 );
               },
             ),
