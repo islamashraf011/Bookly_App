@@ -15,7 +15,7 @@ class HomeRepoImplementation implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?sorting=newest&filtering=free-ebooks&q=subject:programming',
+            'volumes?sorting=newest&filtering=free-ebooks&q=subject:animals',
       );
       // if i take all Map from Api (ctrl+A) i don't need to do these steps here.
       List<BookModel> books = [];

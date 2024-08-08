@@ -1,5 +1,6 @@
 import 'package:bookly_app/Core/utils/app_router.dart';
 import 'package:bookly_app/Core/utils/app_text_style.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../Core/utils/responsive_size.dart';
@@ -7,7 +8,11 @@ import 'books_rating.dart';
 import 'custom_book_image.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,9 @@ class BookListViewItem extends StatelessWidget {
           height: ResponsiveSize.height(context, 125),
           child: Row(
             children: [
-              const CustomBookImage(),
+              CustomBookImage(
+                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+              ),
               SizedBox(
                 width: ResponsiveSize.width(context, 30),
               ),
@@ -32,7 +39,7 @@ class BookListViewItem extends StatelessWidget {
                     SizedBox(
                       width: ResponsiveSize.width(context, 200),
                       child: Text(
-                        "Harry Potter and the Goblet of Fire",
+                        bookModel.volumeInfo!.title!,
                         style: AppTextStyles.regularGtFont20(context),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -42,7 +49,9 @@ class BookListViewItem extends StatelessWidget {
                       height: ResponsiveSize.height(context, 3),
                     ),
                     Text(
-                      "J.K. Rowling",
+                      bookModel.volumeInfo?.authors != null
+                          ? bookModel.volumeInfo!.authors![0]
+                          : 'Author not available',
                       style: AppTextStyles.regular14(context),
                     ),
                     SizedBox(
@@ -53,10 +62,14 @@ class BookListViewItem extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          "19.99 €",
+                          "Free",
                           style: AppTextStyles.bold20(context),
                         ),
-                        const BooksRating(),
+                        BooksRating(
+                          rating: bookModel.volumeInfo!.contentVersion!,
+                          rateCount: bookModel
+                              .volumeInfo!.contentVersion!.characters.last,
+                        ),
                       ],
                     ),
                   ],

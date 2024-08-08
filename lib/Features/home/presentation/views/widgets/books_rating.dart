@@ -5,8 +5,9 @@ import '../../../../../Core/utils/responsive_size.dart';
 import '../../../../../constants.dart';
 
 class BooksRating extends StatelessWidget {
-  const BooksRating({super.key});
-
+  const BooksRating({super.key, required this.rating, required this.rateCount});
+  final String rating;
+  final String rateCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,14 +21,14 @@ class BooksRating extends StatelessWidget {
           width: ResponsiveSize.width(context, 10),
         ),
         Text(
-          "4.8",
+          rating,
           style: AppTextStyles.medium16(context),
         ),
         SizedBox(
           width: ResponsiveSize.width(context, 7),
         ),
         Text(
-          "(2390)",
+          "($rateCount)",
           style: AppTextStyles.regularColor14(context),
         ),
       ],
