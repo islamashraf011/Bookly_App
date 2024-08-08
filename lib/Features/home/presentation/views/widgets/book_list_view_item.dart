@@ -27,7 +27,8 @@ class BookListViewItem extends StatelessWidget {
           child: Row(
             children: [
               CustomBookImage(
-                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                //this line mean if the Url not Working Use Empty String it shows a error Icon
+                imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ?? '',
               ),
               SizedBox(
                 width: ResponsiveSize.width(context, 30),
