@@ -26,6 +26,7 @@ class BookDetailsSection extends StatelessWidget {
         Text(
           bookModel.volumeInfo!.title!,
           style: AppTextStyles.regularGtFont30(context),
+          textAlign: TextAlign.center,
         ),
         SizedBox(
           height: ResponsiveSize.height(context, 4),
