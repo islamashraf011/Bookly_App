@@ -27,10 +27,10 @@ class BooksRating extends StatelessWidget {
         SizedBox(
           width: ResponsiveSize.width(context, 7),
         ),
-        Text(
-          "($rateCount)",
-          style: AppTextStyles.regularColor14(context),
-        ),
+        // Text(
+        //   "($rateCount)",
+        //   style: AppTextStyles.regularColor14(context),
+        // ),
       ],
     );
   }

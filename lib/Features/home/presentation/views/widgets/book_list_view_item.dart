@@ -4,7 +4,6 @@ import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart'
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../Core/utils/responsive_size.dart';
-import 'books_rating.dart';
 import 'custom_book_image.dart';
 
 class BookListViewItem extends StatelessWidget {
@@ -20,7 +19,10 @@ class BookListViewItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.bookDetailsView);
+          GoRouter.of(context).push(
+            AppRouter.bookDetailsView,
+            extra: bookModel,
+          );
         },
         child: SizedBox(
           height: ResponsiveSize.height(context, 125),
@@ -64,13 +66,13 @@ class BookListViewItem extends StatelessWidget {
                       children: [
                         Text(
                           "Free",
-                          style: AppTextStyles.bold20(context),
+                          style: AppTextStyles.regularColor14(context),
                         ),
-                        BooksRating(
-                          rating: bookModel.volumeInfo!.contentVersion!,
-                          rateCount: bookModel
-                              .volumeInfo!.contentVersion!.characters.last,
-                        ),
+                        // BooksRating(
+                        //   rating: bookModel.volumeInfo!.contentVersion!,
+                        //   rateCount: bookModel
+                        //       .volumeInfo!.contentVersion!.characters.last,
+                        // ),
                       ],
                     ),
                   ],
